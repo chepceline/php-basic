@@ -25,7 +25,7 @@
 50 and below = F */
 
 
-$score=69;
+$score=90;
 
 if ($score<=50){
     echo "F grade";
@@ -48,3 +48,4 @@ else if ($score>=91 and $score<=100){
 else {
     echo "invalid input";
 }
+// output B grade
