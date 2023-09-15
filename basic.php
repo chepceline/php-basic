@@ -25,27 +25,45 @@
 50 and below = F */
 
 
-$score=90;
+$studentScores = [
+    "Sarah Johnson" => ["eng" => 85, "Math" => 78, "kisw" => 90],
+    "David Smith" => ["eng" => 92, "Math" => 88, "kisw" => 85],
+    "Emily Davis" => ["eng" => 78, "Math" => 45, "kisw" => 92],
+    "Michael Brown" => ["eng" => 89, "Math" => 60, "kisw" => 84],
+    "Olivia Wilson" => ["eng" => 94, "Math" => 91, "kisw" => 89],
+    "William Lee" => ["eng" => 40, "Math" => 82, "kisw" => 77],
+    "Sophia Miller" => ["eng" => 88, "Math" => 57, "kisw" => 95],
+    "James Anderson" => ["eng" => 91, "Math" => 86, "kisw" => 88],
+    "Ava Martinez" => ["eng" => 83, "Math" => 79, "kisw" => 91],
+    "Ethan Taylor" => ["eng" => 87, "Math" => 52, "kisw" => 87],
+];
 
-if ($score<=50){
-    echo "F grade";
+foreach ($studentScores as $student => $scores) {
+    $engScore = $scores["eng"];
+    $mathScore = $scores["Math"];
+    $kiswScore = $scores["kisw"];
+    
+    // Calculate the average score for each student
+    $averageScore = ($engScore + $mathScore + $kiswScore) / 3;
+    
+    // Determine the grade based on the average score
+    if ($averageScore >= 91 && $averageScore <= 100) {
+        $grade = "A";
+    } elseif ($averageScore >= 81 && $averageScore <= 90) {
+        $grade = "B";
+    } elseif ($averageScore >= 71 && $averageScore <= 80) {
+        $grade = "C";
+    } elseif ($averageScore >= 61 && $averageScore <= 70) {
+        $grade = "D";
+    } elseif ($averageScore >= 51 && $averageScore <= 60) {
+        $grade = "E";
+    } else {
+        $grade = "F";
+    }
+    
+    // Print the student's name, average score, and grade
+    echo "Student: $student\n";
+    echo "Average Score: $averageScore\n";
+    echo "Grade: $grade\n";
+    echo "------------------------\n";
 }
-else if ($score>=51 and $score<=60){
-    echo "E grade";
-}
-else if ($score>=61 and $score<=70){
-    echo "D grade";
-}
-else if ($score>=71 and $score<=80){
-    echo "C grade";
-}
-else if ($score>=81 and $score<=90){
-    echo "B grade";
-}
-else if ($score>=91 and $score<=100){
-    echo "A grade";
-}
-else {
-    echo "invalid input";
-}
-// output B grade
